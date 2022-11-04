@@ -1,0 +1,51 @@
+.todolist {
+    box-shadow: 5px 15px 30px #000000;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0b0d0ea8;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    min-height: 125px;
+    border-radius: 25px;
+    overflow-x: hidden;
+}
+
+/* .table-title {
+    color: #00ffff6d;
+    margin: 10px;
+} */
+
+.list {
+    flex: 1;
+    color: white;
+    background-color: #0b0d0ea8;
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+}
+
+.table-headers {
+    text-transform: uppercase;
+    font-size: larger;
+    color: #00ffff6d;
+}
+
+.empty {
+    color: white;
+    text-align: center;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.even {
+    background-color: #0b0d0e3e;
+
+}
+
+.odd {
+    background-color: #0b0d0e82;
+    
+}
