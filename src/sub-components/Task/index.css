@@ -1,0 +1,46 @@
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: black;
+    color: white;
+    margin-right: 10rem;
+    margin-left: 10rem;
+    border-radius: 4px;
+}
+
+.item-name {
+    text-transform: capitalize;
+    font-size: x-large;
+    margin-left: 8rem;
+}
+
+.delete-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 20px;
+    position: fixed;
+    margin-right: 60rem;
+    color: #ea4520;
+}
+
+.delete-button:hover {
+    background-color: #ea4520;
+    color: black;
+    border: solid;
+    border-width: thin;
+    border-radius: 7px;
+}
+
+.edit-button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin-left: 20rem;
+}
+
+.edit-button:hover {
+    color: #54c3ff;
+}

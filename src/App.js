@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import TaskList from './components/List/TaskList';
 import AddTaskForm from './components/Forms/AddTaskForm';
 import EditForm from './components/Forms/EditForm';
+import TaskList from './components/List/TaskList';
 
 function App() {
   const [isEditing, setIsEditing] = useState(false);
