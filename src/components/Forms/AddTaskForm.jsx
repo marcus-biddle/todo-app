@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import './index.css'
 
-export const TextInput = ({handleClick}) => {
+export default function AddTaskForm ({handleAddTaskClick}) {
   const [value, setValue] = useState('');
-  const [priority, setPriority] = useState('low');
   
   return (
     <div className='form'>
       <div>
-        {/* add dropdown for priority */}
-        <input className='textinput' type="text" placeholder='  Enter task...' value={value} onChange={e => setValue(e.target.value)} />
+        <input className='AddTaskForm' type="text" placeholder='  Enter task...' value={value} onChange={e => setValue(e.target.value)} />
         <button className='input-button' onClick={() => {
-          handleClick(value, priority);
+          handleAddTaskClick(value);
           setValue('');
           }}>
             Add

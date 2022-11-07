@@ -6,18 +6,7 @@
 .App {
   text-align: center;
   align-items: center;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding-top: 7rem;
-  
-  margin-left: 10px;
-  margin-right: 10px;
+  color: black;
   width: 100%;
   height: 100vh;
-  background-color: #0b0d0ecb;
-}
-
-.content {
-  display: grid;
-  padding-top: 5rem;
 }
