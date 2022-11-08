@@ -9,11 +9,11 @@ export default function TaskList({tasks, handleDeleteClick, handleEditClick}) {
           <h2 className='empty-taskForm'>Please Enter A Task.</h2>
           : 
           <div>
-            <ul>
+            <ul className='items-list'>
               {tasks.map((task) => {
                 return (
                 <TaskItem 
-                key={task.id} 
+                key={task.id -1} 
                 item={task} 
                 handleDeleteClick={handleDeleteClick} 
                 handleEditClick={handleEditClick} />

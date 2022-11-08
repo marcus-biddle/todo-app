@@ -19,6 +19,9 @@ function App() {
 
   const handleAddTaskClick = (task) => {
     const id = tasks.length +1;
+    if (tasks[id]) {
+      return null;
+    }
     setTasks((prev) => [
       ...prev, {id: id, task: task, added: Date.now()}
     ]);
@@ -29,6 +32,7 @@ function App() {
       return task.id !== id;
     })
     setTasks(removedItem);
+
   }
 
   const handleEditClick = (task) => {
@@ -51,6 +55,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks))
+    console.log(tasks);
   }, [tasks])
 
   return (
