@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './style.css';
 import { MdDelete } from 'react-icons/md';
 import { AiFillEdit } from 'react-icons/ai'
@@ -12,7 +12,7 @@ export default function TaskItem ({className, position, item, handleDeleteClick,
         <span className='item-name'>{item.task}</span>
       </div>
       <div className='icons'>
-        <button className='icon-bg' onClick={() => {handleDeleteClick(item.id)}}>
+        <button className='icon-bg' onClick={() => handleDeleteClick(item.id)}>
         <MdDelete className='icon-button' />
         </button>
         <button className='icon-bg' onClick={() => handleEditClick(item)}>

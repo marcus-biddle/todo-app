@@ -7,6 +7,7 @@ import TaskList from './components/List/TaskList';
 function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [activeTask, setActiveTask] = useState();
+  const [addedTask, setAddedTask] = useState(true);
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem("tasks");
 
@@ -24,10 +25,13 @@ function App() {
         ...prev, {id: id, task: task, added: Date.now()}
       ]);
     }
+    setAddedTask(true);
     
   };
 
   const handleDeleteClick = (id) => {
+    setAddedTask(false);
+    
     const removedItem = tasks.filter((task) => {
       return task.id !== id;
     })
@@ -67,7 +71,7 @@ function App() {
           <AddTaskForm handleAddTaskClick={handleAddTaskClick}/>
           }
 
-          <TaskList tasks={tasks} handleDeleteClick={handleDeleteClick} handleEditClick={handleEditClick}/>
+          <TaskList addedTask={addedTask} tasks={tasks} handleDeleteClick={handleDeleteClick} handleEditClick={handleEditClick}/>
         </div>
     </div>
   );

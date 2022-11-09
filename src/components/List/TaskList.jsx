@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TaskItem from '../../sub-components/Task/TaskItem';
 import './style.css';
 
-export default function TaskList({tasks, handleDeleteClick, handleEditClick}) {
+export default function TaskList({addedTask, tasks, handleDeleteClick, handleEditClick}) {
 
   return (
     <div className='taskForm'>
@@ -13,7 +13,7 @@ export default function TaskList({tasks, handleDeleteClick, handleEditClick}) {
             <ul >
               {tasks.map((task, index) => {
                 return (
-                  ((task === tasks[tasks.length - 1]) && tasks.length > 1)?
+                  ((task === tasks[tasks.length - 1]) && addedTask)?
                   <TaskItem
                   className='last-item'
                   tasks={tasks}
