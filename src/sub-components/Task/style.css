@@ -54,6 +54,10 @@
         font-size: x-large;
     }
 
+    .icon-button:hover {
+        cursor: pointer;
+        color: var(--icon-accent);
+    }
     
 }
 
