@@ -19,12 +19,13 @@
     #button {
         padding: 9px;
         background-color: var(--bg-accent);
-        color: var(--icon-color);
+        color: var(--text-accent);
         border: solid;
         border-color: transparent;
         border-width: 2px;
         border-radius: 4px;
         font-size: large;
+        font-weight: bold;
         cursor: pointer;
         margin-left: 8px
     }
@@ -54,13 +55,14 @@
 
 #button {
     background-color: var(--bg-accent);
-    color: var(--icon-color);
+    color: var(--text-accent);
     border: solid;
     border-color: transparent;
     border-radius: 4px;
     cursor: pointer;
     margin-left: 8px;
     font-size: 10px;
+    font-weight: bold;
     padding: 5.57px;
 }
 
