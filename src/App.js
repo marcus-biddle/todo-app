@@ -24,6 +24,7 @@ function App() {
         ...prev, {id: id, task: task, added: Date.now()}
       ]);
     }
+    
   };
 
   const handleDeleteClick = (id) => {
@@ -67,7 +68,6 @@ function App() {
           }
 
           <TaskList tasks={tasks} handleDeleteClick={handleDeleteClick} handleEditClick={handleEditClick}/>
-
         </div>
     </div>
   );
