@@ -1,3 +1,33 @@
+@media only screen and (min-width: 1024px) {
+
+    .input {
+        width: calc(var(--item-size) *1.025);
+        padding: 10px;
+        border-radius: 4px;
+        font-size: larger;
+    }
+
+    #button {
+        padding: 9px;
+        background-color: var(--bg-accent);
+        color: var(--icon-color);
+        border: solid;
+        border-color: transparent;
+        border-width: 2px;
+        border-radius: 4px;
+        font-size: large;
+        cursor: pointer;
+        margin-left: 8px
+    }
+}
+
+.input {
+    width: calc(var(--item-size) *.28);
+    padding: 4px;
+    border-radius: 4px;
+    font-size: large;
+}
+
 .form {
     display: flex;
     flex-direction: row;
@@ -7,28 +37,20 @@
     border-radius: 4px;
 }
 
-.input {
-    width: calc(var(--item-size) *1.025);
-    padding: 10px;
-    border-radius: 4px;
-    font-size: larger;
-    
-}
-
 #button {
-    padding: 9px;
     background-color: var(--bg-accent);
     color: var(--icon-color);
     border: solid;
     border-color: transparent;
-    border-width: 2px;
     border-radius: 4px;
-    font-size: large;
     cursor: pointer;
-    margin-left: 8px
+    margin-left: 8px;
+    font-size: 10px;
+    padding: 2.2px;
 }
 
 #button:hover {
     border: solid;
     border-color: black;
+    padding: 2px;
 }

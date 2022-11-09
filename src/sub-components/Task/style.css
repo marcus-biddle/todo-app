@@ -1,59 +1,109 @@
+@media only screen and (min-width: 1024px) {
+    .items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        background-color: var(--bg-accent);
+        color: var(--text-accent);
+        width: var(--item-size);
+        margin-bottom: 10px;
+        border-radius: 4px;
+        padding: 5px;
+        padding-left: 5rem;
+    }
+
+    .list-count {
+        font-size: x-large;
+        align-content: center;
+        border: solid;
+        border-width: 1px;
+        border-radius: 20px;
+        width: 28px;
+        margin-right: 18px;
+    }
+
+    .icon-button {
+        --button-size: calc(var(--item-size) * .025);
+        width: var(--button-size);
+        height: var(--button-size);
+        color: var(--icon-color);
+        
+    }
+
+    .icon-bg {
+        border: none;
+        --container-size: calc(var(--item-size) * .032);
+        width: var(--container-size);
+        height: var(--container-size);
+        border-radius: var(--border-radius);
+        margin: 5px;
+    }
+
+    .icons {
+        margin-right: 5rem;
+    }
+
+    .item-name {
+        text-transform: capitalize;
+        font-size: x-large;
+    }
+
+    
+}
+
+.list-count {
+    align-content: center;
+    border: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-right: 43px;
+}
+
 .items {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
     background-color: var(--bg-accent);
     color: var(--text-accent);
-    width: var(--item-size);
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 5px;
     padding-left: 5rem;
 }
 
-.list-count {
-    font-size: x-large;
-    align-content: center;
-    border: solid;
-    border-width: 1px;
-    border-radius: 20px;
-    width: 28px;
-    margin-right: 18px;
+.icons {
+    margin-right: 2rem;
 }
 
-.icon-button {
-    --button-size: calc(var(--item-size) * .025);
-    width: var(--button-size);
-    height: var(--button-size);
-    color: var(--icon-color);
-    
-}
-
-.icon-button:hover {
-    cursor: pointer;
-    color: var(--icon-accent);
+.info {
+    display: flex;
+    justify-content: left;
 }
 
 .icon-bg {
     border: none;
-    --container-size: calc(var(--item-size) * .032);
+    --container-size: calc(var(--item-size) * .019);
     width: var(--container-size);
     height: var(--container-size);
     border-radius: var(--border-radius);
     margin: 5px;
 }
 
-.icons {
-    margin-right: 5rem;
+.icon-button {
+    --button-size: calc(var(--item-size) * .0145);
+    width: var(--button-size);
+    height: var(--button-size);
+    color: var(--icon-color);
+    padding-top: 2px;
 }
 
-.item-name {
-    text-transform: capitalize;
-    font-size: x-large;
-}
-
-.info {
-    display: flex;
-    justify-content: left;
+.icon-button:hover {
+    cursor: pointer;
+    color: var(--icon-accent);
 }
