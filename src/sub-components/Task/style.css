@@ -3,14 +3,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: auto;
+        margin-left: 20px;
+        margin-right: 20px;
         background-color: var(--bg-accent);
         color: var(--text-accent);
-        width: var(--item-size);
+        width: auto;
         margin-bottom: 10px;
         border-radius: 4px;
         padding: 5px;
-        padding-left: 5rem;
     }
 
     .list-count {
@@ -25,7 +25,6 @@
 
     .info {
         display: flex;
-        justify-content: left;
     }
 
     .icon-button {
@@ -45,13 +44,10 @@
         margin: 5px;
     }
 
-    .icons {
-        margin-right: 5rem;
-    }
-
     .item-name {
         text-transform: capitalize;
         font-size: x-large;
+        margin-left: calc(var(--item-size) * .1);
     }
 
     .icon-button:hover {
@@ -85,16 +81,15 @@
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 5px;
-    padding-left: 5rem;
 }
 
-.icons {
-    margin-right: 2rem;
+.item-name {
+    text-transform: capitalize;
+    margin-left: calc(var(--item-size) * .01);
 }
 
 .info {
     display: flex;
-    justify-content: left;
 }
 
 .icon-bg {
