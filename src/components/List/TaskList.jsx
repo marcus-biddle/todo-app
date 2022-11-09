@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskItem from '../../sub-components/Task/TaskItem';
-import './index.css';
+import './style.css';
 
 export default function TaskList({tasks, handleDeleteClick, handleEditClick}) {
   return (

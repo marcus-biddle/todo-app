@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css';
+import './style.css';
 import { MdDelete } from 'react-icons/md';
 import { AiFillEdit } from 'react-icons/ai'
 

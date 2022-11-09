@@ -19,17 +19,19 @@ function App() {
 
   const handleAddTaskClick = (task) => {
     const id = tasks.length +1
-    setTasks((prev) => [
-      ...prev, {id: id, task: task, added: Date.now()}
-    ]);
+    if (tasks.length <= 8) {
+      setTasks((prev) => [
+        ...prev, {id: id, task: task, added: Date.now()}
+      ]);
+    }
   };
 
   const handleDeleteClick = (id) => {
     const removedItem = tasks.filter((task) => {
       return task.id !== id;
     })
-    setTasks(removedItem);
 
+    setTasks(removedItem);
   }
 
   const handleEditClick = (task) => {
@@ -52,7 +54,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks))
-    console.log(tasks);
   }, [tasks])
 
   return (

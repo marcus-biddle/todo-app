@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './index.css'
+import './style.css'
 
 export default function AddTaskForm ({handleAddTaskClick}) {
   const [value, setValue] = useState('');
