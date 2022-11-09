@@ -23,6 +23,11 @@
         margin-right: 18px;
     }
 
+    .info {
+        display: flex;
+        justify-content: left;
+    }
+
     .icon-button {
         --button-size: calc(var(--item-size) * .025);
         width: var(--button-size);
@@ -51,6 +56,8 @@
 
     
 }
+
+@media only screen and (max-width: 1024px) {
 
 .list-count {
     align-content: center;
@@ -106,4 +113,5 @@
 .icon-button:hover {
     cursor: pointer;
     color: var(--icon-accent);
+}
 }
