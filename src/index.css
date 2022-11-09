@@ -1,0 +1,16 @@
+:root {
+    --bg: #101935;
+    --bg-accent: #9AD4D6;
+    --item-size: 70rem;
+    --text-color: #F2FDFF;
+    --icon-color: #3e2397;
+    --icon-accent: #c97d0c;
+    --text-accent: #000000;
+    --border: 1px solid black;
+    --border-radius: 50%;
+    --speed: 500ms;
+}
+
+h1 {
+    color: var(--text-color)
+}

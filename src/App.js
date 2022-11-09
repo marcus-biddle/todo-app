@@ -18,10 +18,7 @@ function App() {
   });
 
   const handleAddTaskClick = (task) => {
-    const id = tasks.length +1;
-    if (tasks[id]) {
-      return null;
-    }
+    const id = tasks.length +1
     setTasks((prev) => [
       ...prev, {id: id, task: task, added: Date.now()}
     ]);

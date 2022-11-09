@@ -1,0 +1,34 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 4px;
+}
+
+.input {
+    width: calc(var(--item-size) *1.025);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: larger;
+    
+}
+
+#button {
+    padding: 9px;
+    background-color: var(--bg-accent);
+    color: var(--icon-color);
+    border: solid;
+    border-color: transparent;
+    border-width: 2px;
+    border-radius: 4px;
+    font-size: large;
+    cursor: pointer;
+    margin-left: 8px
+}
+
+#button:hover {
+    border: solid;
+    border-color: black;
+}

@@ -1,55 +1,55 @@
 .items {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: rgb(27, 25, 25);
-    color: white;
-    margin-right: 10rem;
-    margin-left: 10rem;
+    justify-content: space-between;
+    margin: auto;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
+    width: var(--item-size);
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 5px;
     padding-left: 5rem;
 }
 
+.list-count {
+    font-size: x-large;
+    align-content: center;
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    width: 28px;
+    margin-right: 10px;
+}
+
+.icon-button {
+    --button-size: calc(var(--item-size) * .025);
+    width: var(--button-size);
+    height: var(--button-size);
+    color: var(--icon-color);
+    
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    color: var(--icon-accent);
+}
+
+.icon-bg {
+    border: none;
+    --container-size: calc(var(--item-size) * .032);
+    width: var(--container-size);
+    height: var(--container-size);
+    border-radius: var(--border-radius);
+    margin: 5px;
+}
+
 .item-name {
     text-transform: capitalize;
     font-size: x-large;
-    margin-right: auto;
 }
 
-.trash-icon {
-    transform: scale(1.6);
-}
-
-.edit-icon {
-    transform: scale(1.5);
-}
-
-.delete-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    width: 20px;
-    color: #1f680d;
-    margin-right: auto;
-}
-
-.delete-button:hover {
-    color: #ea4520;
-
-}
-
-.edit-button {
-    border: none;
-    background-color: transparent;
-    color: #1bb4a578;
-    cursor: pointer;
-    margin-left: auto;
-    padding-right: 5rem;
-}
-
-.edit-button:hover {
-    color: #54c3ff;
+.info {
+    display: flex;
+    justify-content: left;
 }

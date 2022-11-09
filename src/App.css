@@ -6,7 +6,11 @@
 .App {
   text-align: center;
   align-items: center;
+  padding-top: 5rem;
   color: black;
+  background-color: var(--bg);
   width: 100%;
   height: 100vh;
 }
+
+

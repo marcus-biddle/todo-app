@@ -6,14 +6,15 @@ export default function TaskList({tasks, handleDeleteClick, handleEditClick}) {
   return (
     <div className='taskForm'>
       {tasks.length === 0?
-          <h2 className='empty-taskForm'>Please Enter A Task.</h2>
+          <h2>Please enter a task above.</h2>
           : 
-          <div>
-            <ul className='items-list'>
-              {tasks.map((task) => {
+          <div className='items-list'>
+            <ul >
+              {tasks.map((task, index) => {
                 return (
                 <TaskItem 
-                key={task.id -1} 
+                key={task.id -1}
+                position={index}
                 item={task} 
                 handleDeleteClick={handleDeleteClick} 
                 handleEditClick={handleEditClick} />
