@@ -5,10 +5,10 @@ import cors from "cors"
 const app = express()
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "1234",
-    database: "todolist"
+    host: "todo-list-database.carjfn8n4yqj.us-west-2.rds.amazonaws.com",
+    user: "admin",
+    password: "",
+    database: "tododb"
 })
 
 app.use(express.json());
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/tasks", (req, res) => {
-    const q = "SELECT * FROM items"
+    const q = "SELECT * FROM todolist"
     db.query(q, (err, data) => {
         if (err) return res.json(err)
         return res.json(data)
@@ -27,7 +27,7 @@ app.get("/tasks", (req, res) => {
 })
 
 app.post("/tasks", (req, res) => {
-    const q = "INSERT INTO items (`task`) VALUES (?)"
+    const q = "INSERT INTO todolist (`task`) VALUES (?)"
     const values = [req.body.task]
 
     db.query(q, [values], (err, data) => {
@@ -38,7 +38,7 @@ app.post("/tasks", (req, res) => {
 
 app.delete("/tasks/:id", (req, res) => {
     const bookId = req.params.id;
-    const q = "DELETE FROM items WHERE id = ?";
+    const q = "DELETE FROM todolist WHERE id = ?";
 
     db.query(q, [bookId], (err, data) => {
         if (err) return res.json(err);
@@ -48,7 +48,7 @@ app.delete("/tasks/:id", (req, res) => {
 
 app.put("/tasks/:id", (req, res) => {
     const bookId = req.params.id;
-    const q = "UPDATE items SET `task` = ? WHERE id = ?";
+    const q = "UPDATE todolist SET `task` = ? WHERE id = ?";
 
     const values = [req.body.task]
 
