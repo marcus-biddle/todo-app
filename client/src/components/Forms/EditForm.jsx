@@ -1,12 +1,19 @@
 import React from 'react'
+import { useState } from 'react';
 
-function EditForm({activeTask, handleEditChange, setIsEditing, handleUpdateClick}) {
+function EditForm({activeTask, setIsEditing, handleUpdateClick}) {
+  const [value, setValue] = useState();
+
+  const handleEditChange = (e) => {
+    setValue(e.target.value);
+  }
+
   return (
     <div className='form'>
-        <input className='input' type="text" placeholder='Edit task or cancel action' value={activeTask.task} onChange={(e) =>  handleEditChange(e)}  />
+        <input className='input' type="text" placeholder='Edit task or cancel action' value={value} onChange={(e) =>  handleEditChange(e)}  />
         <div>
           <button id='button' onClick={(e) => {
-              handleUpdateClick(activeTask, activeTask.id) 
+              handleUpdateClick(value, activeTask.id) 
               setIsEditing(false);}}>
               Update
           </button>

@@ -9,7 +9,7 @@ export default function TaskItem ({className, position, item, handleDeleteClick,
     <li className={className} key={item.id}>
       <div className='info'>
         <div className='list-count'>{position +1}</div>
-        <span className='item-name'>{item.task}</span>
+        <span className='item-name'>{item.item}</span>
       </div>
       <div className='icons'>
         <button className='icon-bg' onClick={() => handleDeleteClick(item.id)}>

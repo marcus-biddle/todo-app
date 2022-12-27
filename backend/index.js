@@ -2,13 +2,13 @@ import express from "express"
 import mysql from "mysql"
 import cors from "cors"
 
+// const serverless = require('serverless-http');
 const app = express()
 
-const db = mysql.createConnection({
+const con = mysql.createConnection({
     host: "todo-list-database.carjfn8n4yqj.us-west-2.rds.amazonaws.com",
     user: "admin",
-    password: "",
-    database: "tododb"
+    password: "12345678",
 })
 
 app.use(express.json());
@@ -19,45 +19,51 @@ app.get("/", (req, res) => {
 })
 
 app.get("/tasks", (req, res) => {
-    const q = "SELECT * FROM todolist"
-    db.query(q, (err, data) => {
-        if (err) return res.json(err)
-        return res.json(data)
-    })
-})
+    con.connect(function(err) {
+        con.query(`SELECT * FROM todolist.tasks`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.send(result);
+        });
+    });
+});
 
 app.post("/tasks", (req, res) => {
-    const q = "INSERT INTO todolist (`task`) VALUES (?)"
-    const values = [req.body.task]
+    if (req.query.item) {
+        console.log("Request Received For POST.");
+        con.connect(function(err) {
+            con.query(`INSERT INTO todolist.tasks (item) VALUES ('${req.query.item}')`, function(err, result, fields) {
+                if (err) res.send(err);
+                if (result) res.send({item: req.query.item});
+                if (fields) console.log(fields);
+            });
+        });
+    } else {
+        console.log("Missing parameter.");
+    }
+});
 
-    db.query(q, [values], (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Item created successfully.");
-    })
-})
-
-app.delete("/tasks/:id", (req, res) => {
-    const bookId = req.params.id;
-    const q = "DELETE FROM todolist WHERE id = ?";
-
-    db.query(q, [bookId], (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Item deleted successfully.");
-    })
-})
+app.delete("/task/:id", (req, res) => {
+    console.log("Request Received For DELETE.");
+    con.connect(function(err) {
+        con.query(`DELETE FROM todolist.tasks WHERE id = ${req.params.id}`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (fields) console.log(fields);
+        });
+    });
+});
 
 app.put("/tasks/:id", (req, res) => {
-    const bookId = req.params.id;
-    const q = "UPDATE todolist SET `task` = ? WHERE id = ?";
-
-    const values = [req.body.task]
-
-    db.query(q, [...values, bookId], (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Item updated successfully.");
-    })
+    console.log("Request Received For PUT.");
+    con.connect(function(err) {
+        con.query(`UPDATE todolist.tasks SET item = ${req.query.item} WHERE id = ${req.params.id}`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (fields) console.log(fields);
+        });
+    });
 })
 
 app.listen(8800, () => {
     console.log("Connected!");
 })
+
+// module.exports.handler = serverless(app);

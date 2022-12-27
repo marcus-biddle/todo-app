@@ -12,17 +12,17 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const handleAddTaskClick = async (task) => {
-    const id = tasks.length +1
+    // const id = tasks.length +1
     // if (tasks.length <= 8) {
     //   setTasks((prev) => [
     //     ...prev, {id: id, task: task, added: Date.now()}
     //   ]);
     // }
 
-    const item = {task: task};
+    // const item = {item: task};
 
     try {
-      await axios.post("http://localhost:8800/tasks", item);
+      await axios.post(`http://localhost:8800/tasks?item=${task}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -41,7 +41,7 @@ function App() {
     // setTasks(removedItem);
 
     try {
-      await axios.delete("http://localhost:8800/tasks/"+id);
+      await axios.delete(`http://localhost:8800/task/${id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -53,11 +53,11 @@ function App() {
     setActiveTask(task);
   }
 
-  const handleEditChange = (e) => {
-    setActiveTask({
-      ...activeTask, task: e.target.value
-    })
-  }
+  // const handleEditChange = (e) => {
+  //   setActiveTask({
+  //     ...activeTask, task: e.target.value
+  //   })
+  // }
 
   const handleUpdateClick = async (task, id) => {
     // const updatedItem = tasks.map((task) => {
@@ -65,36 +65,41 @@ function App() {
     // })
     // setTasks(updatedItem);
 
-    const item = {task: task};
+    const item = {item: task};
 
     try {
-      await axios.put("http://localhost:8800/tasks/"+id, item);
+      await axios.put(`http://localhost:8800/tasks/${id}`, {task});
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   }
 
-  useEffect(() => {
-    const fetchAllTasks = async () => {
-      try {
-        const res = await axios.get("http://localhost:8800/tasks");
-        console.log(res);
-        setTasks(res.data);
-      } catch (err) {
-        console.log(err);
-      }
+  const fetchAllTasks = async () => {
+    try {
+      const res = await axios.get("http://localhost:8800/tasks");
+      console.log(res.data);
+      setTasks(res.data);
+    } catch (err) {
+      console.log(err);
     }
+  }
+
+  useEffect(() => {
+    
     fetchAllTasks();
-    console.log(tasks);
-  }, [])
+    
+
+  }, [tasks])
+
+  console.log(tasks);
 
   return (
     <div className="App">
         <h1>To Do App in ReactJs</h1>
         <div>
           {isEditing? 
-          <EditForm activeTask={activeTask} handleEditChange={handleEditChange} setIsEditing={setIsEditing} handleUpdateClick={handleUpdateClick} /> 
+          <EditForm activeTask={activeTask} setIsEditing={setIsEditing} handleUpdateClick={handleUpdateClick} /> 
           : 
           <AddTaskForm handleAddTaskClick={handleAddTaskClick}/>
           }
