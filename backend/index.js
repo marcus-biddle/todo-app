@@ -1,16 +1,18 @@
-import express from "express"
-import mysql from "mysql"
-import cors from "cors"
+require("dotenv").config();
 
-// const serverless = require('serverless-http');
+const mysql = require('mysql');
+const cors = require('cors');
+const serverless = require('serverless-http');
+const express = require('express');
 const app = express()
 
 const con = mysql.createConnection({
-    host: "todo-list-database.carjfn8n4yqj.us-west-2.rds.amazonaws.com",
-    user: "admin",
-    password: "12345678",
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
 })
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors())
 
@@ -55,7 +57,7 @@ app.delete("/task/:id", (req, res) => {
 app.put("/tasks/:id", (req, res) => {
     console.log("Request Received For PUT.");
     con.connect(function(err) {
-        con.query(`UPDATE todolist.tasks SET item = ${req.query.item} WHERE id = ${req.params.id}`, function(err, result, fields) {
+        con.query(`UPDATE todolist.tasks SET item = '${req.body.item}' WHERE id = ${req.params.id}`, function(err, result, fields) {
             if (err) res.send(err);
             if (fields) console.log(fields);
         });
@@ -66,4 +68,4 @@ app.listen(8800, () => {
     console.log("Connected!");
 })
 
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);

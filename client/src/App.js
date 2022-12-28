@@ -12,14 +12,6 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const handleAddTaskClick = async (task) => {
-    // const id = tasks.length +1
-    // if (tasks.length <= 8) {
-    //   setTasks((prev) => [
-    //     ...prev, {id: id, task: task, added: Date.now()}
-    //   ]);
-    // }
-
-    // const item = {item: task};
 
     try {
       await axios.post(`http://localhost:8800/tasks?item=${task}`);
@@ -33,12 +25,6 @@ function App() {
 
   const handleDeleteClick = async (id) => {
     setAddedTask(false);
-    
-    // const removedItem = tasks.filter((task) => {
-    //   return task.id !== id;
-    // })
-
-    // setTasks(removedItem);
 
     try {
       await axios.delete(`http://localhost:8800/task/${id}`);
@@ -53,22 +39,10 @@ function App() {
     setActiveTask(task);
   }
 
-  // const handleEditChange = (e) => {
-  //   setActiveTask({
-  //     ...activeTask, task: e.target.value
-  //   })
-  // }
-
   const handleUpdateClick = async (task, id) => {
-    // const updatedItem = tasks.map((task) => {
-    //   return task.id === id? activeTask : task
-    // })
-    // setTasks(updatedItem);
-
-    const item = {item: task};
 
     try {
-      await axios.put(`http://localhost:8800/tasks/${id}`, {task});
+      await axios.put(`http://localhost:8800/tasks/${id}`, {item: task});
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -88,7 +62,6 @@ function App() {
   useEffect(() => {
     
     fetchAllTasks();
-    
 
   }, [tasks])
 

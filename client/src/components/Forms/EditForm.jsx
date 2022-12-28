@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 function EditForm({activeTask, setIsEditing, handleUpdateClick}) {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
 
   const handleEditChange = (e) => {
     setValue(e.target.value);
